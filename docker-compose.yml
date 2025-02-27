@@ -2,7 +2,7 @@
 
 services:
   interp.log.api:
-    image: zeul/interp.log:dev-latest
+    image: zeul/interp.log.api:dev-latest
     container_name: interp.log.api
     ports:
       - "8081:8081"
