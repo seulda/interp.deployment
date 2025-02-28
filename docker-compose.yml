@@ -1,11 +1,25 @@
 # version: '3.8'
 
 services:
-  interp.log.api:
-    image: zeul/interp.log.api:dev-latest
-    container_name: interp.log.api
+#  interp.log.api:
+#    image: zeul/interp.log.api:dev-latest
+#    container_name: interp.log.api
+#    ports:
+#      - "8081:8081"
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mariadb://maria-db:3306/interplug
+#      SPRING_DATASOURCE_USERNAME: dev
+#      SPRING_DATASOURCE_PASSWORD: dev
+#    depends_on:
+#      - maria-db
+#    networks:
+#      - interp-net
+
+  interp.ia.ap:
+    image: zeul/interp.ia.api:dev-latest
+    container_name: interp.ia.api
     ports:
-      - "8081:8081"
+      - "8080:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mariadb://maria-db:3306/interplug
       SPRING_DATASOURCE_USERNAME: dev
