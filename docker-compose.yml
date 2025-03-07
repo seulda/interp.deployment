@@ -25,7 +25,8 @@ services:
       SPRING_DATASOURCE_USERNAME: dev
       SPRING_DATASOURCE_PASSWORD: dev
     depends_on:
-      - maria-db
+      maria-db:
+        condition: service_healthy
     networks:
       - interp-net
 
@@ -36,6 +37,12 @@ services:
       - "3306:3306"
     environment:
       - MARIADB_ROOT_PASSWORD=dlsxjvmffjrm
+    healthcheck:
+      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+      start_period: 5s
+      interval: 10s
+      timeout: 5s
+      retries: 3
     volumes:
       - interp-vol-db:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
