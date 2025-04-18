@@ -19,7 +19,7 @@ services:
     image: zeul/interp.ia.api:dev-latest
     container_name: interp.ia.api
     ports:
-      - "8080:8080"
+      - "1433:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mariadb://maria-db:3306/interplug
       SPRING_DATASOURCE_USERNAME: dev
